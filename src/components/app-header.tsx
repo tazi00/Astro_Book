@@ -18,7 +18,7 @@ function AppHeader() {
       <div className="grid grid-cols-2 lg:grid-cols-[1fr_520px_1fr] md:grid-cols-[220px_1fr_220px] items-center md:px-[24px] lg:h-[80px] md:h-[60px] pt-3  pb-1 md:pt-0 md:pb-0 px-[10px]">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
-            <Menu className="-mt-2" />
+            <Menu strokeWidth={3} className="-mt-2" />
           </div>
 
           <Image
@@ -35,7 +35,7 @@ function AppHeader() {
           {/* Active */}
           <button className="relative flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointertext-primary">
             <IoHome className="text-2xl" />
-            <div className="absolute bottom-0 w-full h-1 bg-primary"></div>
+            <div className="absolute bottom-0 w-full h-1 bg-primary hidden md:block"></div>
           </button>
 
           {/* Inactive */}
