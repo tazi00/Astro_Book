@@ -1,65 +1,174 @@
 import Image from "next/image";
+import { HiOutlineBell, HiOutlineUserGroup } from "react-icons/hi";
+import { IoMdHome } from "react-icons/io";
+import { IoHome } from "react-icons/io5";
+import { HiOutlineUser, HiOutlineBookmark, HiOutlineCog } from "react-icons/hi";
+
+import { MdOutlineExplore, MdOutlinePodcasts } from "react-icons/md";
+
+import { RiUserStarLine, RiGroupLine, RiFileListLine } from "react-icons/ri";
+
+import { FaRegHandPaper } from "react-icons/fa";
+import { IoChevronDown } from "react-icons/io5";
+import { FiMoreHorizontal, FiSearch } from "react-icons/fi";
+import { CiSearch } from "react-icons/ci";
+import AstroInput from "@/components/astrov1/astro-input";
+import { Hamburger, HamburgerIcon, Menu } from "lucide-react";
+import AppHeader from "@/components/app-header";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="lg:overflow-y-hidden h-screen">
+        <AppHeader />
+        <main className="grid lg:grid-cols-[1fr_520px_1fr] md:grid-cols-[220px_1fr_220px] grid-cols-1 md:px-[24px] px-[5px] h-screen items-start ">
+          <aside className="hidden md:block">
+            <nav className="flex flex-col gap-1 lg:w-[250px] py-4 ">
+              {/* Profile */}
+              <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-purple-700 font-medium">
+                <HiOutlineUser className="text-xl" />
+                <span>Suprio Karmakar</span>
+              </div>
+
+              <SidebarItem icon={RiUserStarLine} label="Astrologers" active />
+              <SidebarItem icon={MdOutlineExplore} label="Explore" />
+              <SidebarItem icon={MdOutlinePodcasts} label="Podcast" />
+              <SidebarItem icon={FaRegHandPaper} label="AstroZone" />
+              <SidebarItem icon={HiOutlineBookmark} label="Saved" />
+              <SidebarItem icon={RiGroupLine} label="Following" />
+              <SidebarItem icon={RiFileListLine} label="Blogs" />
+              <SidebarItem icon={HiOutlineCog} label="Settings" />
+
+              <SidebarItem icon={IoChevronDown} label="See more" muted />
+            </nav>
+          </aside>
+
+          <div className="lg:overflow-y-scroll">
+            <div className="h-[40px] w-full bg-primary my-5"></div>
+            <div className="space-y-4 md:overflow-y-scroll h-screen">
+              <div className="h-[300px] w-full bg-primary grid place-content-center">
+                POST
+              </div>
+              <div className="h-[300px] w-full bg-primary grid place-content-center">
+                POST
+              </div>
+              <div className="h-[300px] w-full bg-primary grid place-content-center">
+                POST
+              </div>
+              <div className="h-[300px] w-full bg-primary grid place-content-center">
+                POST
+              </div>
+            </div>
+          </div>
+          <div className="hidden md:flex flex-col gap-4  items-end  space-y-4 overflow-y-scroll h-screen">
+            <TopAstrologersSidebar />
+            <div className="lg:w-[310px]">
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-sm font-semibold text-gray-700">
+                  Recommended for you
+                </h2>
+
+                <div className="flex items-center gap-3 text-gray-400">
+                  <FiSearch className="text-lg cursor-pointer hover:text-gray-600" />
+                  <FiMoreHorizontal className="text-lg cursor-pointer hover:text-gray-600" />
+                  <span className="text-xs text-purple-600 font-medium cursor-pointer">
+                    See All
+                  </span>
+                </div>
+              </div>
+
+              {/* Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <RecommendCard
+                  title="Gemstone Consultation"
+                  img="/images/gemstone.jpg"
+                />
+                <RecommendCard title="Bracelets" img="/images/bracelet.jpg" />
+                <RecommendCard title="Reiki healing" img="/images/reiki.jpg" />
+                <RecommendCard title="Palmistry" img="/images/palmistry.jpg" />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
+
+const SidebarItem = ({ icon: Icon, label, active, muted }: any) => {
+  return (
+    <button
+      className={`
+        flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium
+        transition-colors
+        ${
+          active
+            ? "bg-purple-100 text-purple-700"
+            : muted
+              ? "text-gray-400 hover:text-gray-600"
+              : "text-gray-700 hover:bg-gray-100"
+        }
+      `}
+    >
+      <Icon className="text-xl" />
+      <span>{label}</span>
+    </button>
+  );
+};
+
+function TopAstrologersSidebar() {
+  const astrologers = Array.from({ length: 5 });
+
+  return (
+    <aside className="lg:w-[310px]  rounded-xl p-4">
+      {/* Header */}
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-sm font-semibold text-gray-900">
+          Top Astrologers for you
+        </h3>
+
+        <div className="flex items-center gap-2 text-xs text-purple-600">
+          <button className="hover:underline">See all</button>
+        </div>
+      </div>
+
+      {/* List */}
+      <div className="space-y-3">
+        {astrologers.map((_, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-gray-50"
+          >
+            {/* Left */}
+            <div className="flex items-center gap-3">
+              <div className="h-9 w-9 overflow-hidden rounded-full bg-gray-200" />
+
+              <div className="leading-tight">
+                <p className="text-sm font-medium text-gray-900">
+                  Suprio Karmakar
+                </p>
+                <p className="text-xs text-gray-500">Vedic</p>
+              </div>
+            </div>
+
+            {/* Action */}
+            <button className="rounded-full bg-purple-600 px-3 py-1 text-xs font-medium text-white hover:bg-purple-700">
+              Book Now
+            </button>
+          </div>
+        ))}
+      </div>
+    </aside>
+  );
+}
+
+const RecommendCard = ({ img, title }: any) => {
+  return (
+    <div className="flex flex-col items-center gap-2 bg-red-400">
+      <div className="w-full aspect-square rounded-2xl overflow-hidden bg-gray-100">
+        <img src={img} alt={title} className="w-full h-full object-cover" />
+      </div>
+      <p className="text-xs font-medium text-purple-600 text-center">{title}</p>
+    </div>
+  );
+};
