@@ -10,7 +10,7 @@ export function AstroInput({ placeholder }: { placeholder: string }) {
   if (!isDesktop) return null;
 
   return (
-    <div className="relative ml-[8px]">
+    <div className="relative ml-[8px] lg:block hidden">
       <input
         type="text"
         placeholder={placeholder}

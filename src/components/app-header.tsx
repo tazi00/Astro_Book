@@ -80,7 +80,6 @@ function AppHeader() {
           </button>
         </div>
         <div className="md:hidden flex items-center justify-end">
-         
           <SearchBox />
         </div>
       </div>
