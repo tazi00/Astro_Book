@@ -14,6 +14,7 @@ import {
 } from "react-icons/hi";
 import { useSidebarStore } from "@/store/useSidebar.store";
 import { AstroInput } from "./astrov1/astro-input";
+import SearchBox from "./search-box";
 
 function AppHeader() {
   const toggleSidebar = useSidebarStore((s) => s.toggle);
@@ -79,10 +80,8 @@ function AppHeader() {
           </button>
         </div>
         <div className="md:hidden flex items-center justify-end">
-          <CiSearch
-            strokeWidth={1}
-            className="text-primary text-[30px] -mt-2"
-          />
+         
+          <SearchBox />
         </div>
       </div>
     </header>
