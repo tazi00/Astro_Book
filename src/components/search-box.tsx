@@ -1,5 +1,4 @@
 import { CiSearch } from "react-icons/ci";
-import { AstroInput } from "./astrov1/astro-input";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useSearchBoxStore } from "@/store/useSearchBox.store";
