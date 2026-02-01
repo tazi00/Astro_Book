@@ -3,7 +3,6 @@
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import AstroInput from "./astrov1/astro-input";
 import { IoHome } from "react-icons/io5";
 import { MdOutlineExplore } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
@@ -14,9 +13,11 @@ import {
   HiOutlineUserGroup,
 } from "react-icons/hi";
 import { useSidebarStore } from "@/store/useSidebar.store";
+import { AstroInput } from "./astrov1/astro-input";
 
 function AppHeader() {
   const toggleSidebar = useSidebarStore((s) => s.toggle);
+
   return (
     <header className="bg-[#F5E5F5] border-b border-gray-200 ">
       <div className="grid grid-cols-2 lg:grid-cols-[1fr_520px_1fr] md:grid-cols-[220px_1fr_220px] items-center md:px-[24px] lg:h-[80px] md:h-[60px] pt-3  pb-1 md:pt-0 md:pb-0 px-[10px]">
@@ -36,7 +37,6 @@ function AppHeader() {
             height={35}
             className="md:w-[146px] h-[35px] w-[120px]  "
           />
-
           <AstroInput placeholder="Search" />
         </div>
         <nav className=" justify-center items-center grid md:grid-cols-5 grid-cols-6  md:h-full md:static fixed left-0 bottom-0 w-full md:bg-transparent bg-[#F5E5F5] h-[60px] md:h-none">

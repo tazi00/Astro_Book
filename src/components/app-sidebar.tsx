@@ -1,9 +1,7 @@
 import { useSidebarStore } from "@/store/useSidebar.store";
 import clsx from "clsx";
-import { Cross, Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-import AstroInput from "./astrov1/astro-input";
 import { HiOutlineBookmark, HiOutlineCog, HiOutlineUser } from "react-icons/hi";
 import { RiFileListLine, RiGroupLine, RiUserStarLine } from "react-icons/ri";
 import { MdOutlineExplore, MdOutlinePodcasts } from "react-icons/md";
@@ -44,7 +42,7 @@ function AppSidebar() {
       )}
       <aside
         className={clsx(
-          "z-50 bg-[#F5E5F5]",
+          "z-50 md:bg-transparent bg-[#F5E5F5]",
           "w-[300px] h-screen",
           "fixed md:static top-0 left-0",
           "transition-transform duration-300 ease-in-out",
@@ -62,7 +60,6 @@ function AppSidebar() {
                   <X strokeWidth={3} className="-mt-2" />
                 </button>
               </div>
-
               <Image
                 src="/logo.svg"
                 alt="Logo"
@@ -71,7 +68,7 @@ function AppSidebar() {
                 className="md:w-[146px] h-[35px] w-[120px]  "
               />
 
-              <AstroInput placeholder="Search" />
+              {/* <AstroInput placeholder="Search" /> */}
             </div>
           </div>
           <div className="md:flex hidden items-center gap-3 px-3 py-2 rounded-lg text-primary font-medium text-lg">

@@ -1,15 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { HiOutlineUser, HiOutlineBookmark, HiOutlineCog } from "react-icons/hi";
-
-import { MdOutlineExplore, MdOutlinePodcasts } from "react-icons/md";
-
-import { RiUserStarLine, RiGroupLine, RiFileListLine } from "react-icons/ri";
-
-import { FaRegHandPaper } from "react-icons/fa";
-import { IoChevronDown } from "react-icons/io5";
-import AstroInput from "@/components/astrov1/astro-input";
 import { Menu, Search } from "lucide-react";
 import AppHeader from "@/components/app-header";
 import { BsThreeDots } from "react-icons/bs";
