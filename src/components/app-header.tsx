@@ -15,6 +15,7 @@ import {
 import { useSidebarStore } from "@/store/useSidebar.store";
 import { AstroInput } from "./astrov1/astro-input";
 import SearchBox from "./search-box";
+import Link from "next/link";
 
 function AppHeader() {
   const toggleSidebar = useSidebarStore((s) => s.toggle);
@@ -48,9 +49,12 @@ function AppHeader() {
           </button>
 
           {/* Inactive */}
-          <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary">
+          <Link
+            href="/explore"
+            className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary"
+          >
             <MdOutlineExplore className="text-2xl" />
-          </button>
+          </Link>
 
           <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary">
             <HiOutlineUserGroup className="text-2xl" />

@@ -1,3 +1,5 @@
+"use client";
+
 import { useSidebarStore } from "@/store/useSidebar.store";
 import clsx from "clsx";
 import { X } from "lucide-react";
@@ -43,7 +45,7 @@ function AppSidebar() {
       <aside
         className={clsx(
           "z-50 md:bg-transparent bg-[#F5E5F5]",
-          "w-[300px] h-screen",
+          "max-w-[300px] w-[300px] h-screen",
           "fixed md:static top-0 left-0",
           "transition-transform duration-300 ease-in-out",
           "md:translate-x-0",
