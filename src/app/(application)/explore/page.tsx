@@ -31,7 +31,7 @@ export default function ExplorePage() {
 
   return (
     <div className="bg-white">
-      <div className=" w-full flex items-center justify-start border-b border-secondary lg:py-2 py-1 mt-[60px]">
+      <div className=" w-full flex items-center justify-start border-b border-secondary lg:py-2 py-1 mt-[60px] md:mt-0">
         {/* Left Section */}
         <div className="flex items-center  gap-9 overflow-x-auto no-scrollbar">
           {/* Filter Button */}

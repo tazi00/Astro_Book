@@ -60,13 +60,19 @@ function AppHeader() {
             <HiOutlineUserGroup className="text-2xl" />
           </button>
 
-          <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary">
+          <Link
+            href={"/consultant"}
+            className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary"
+          >
             <HiOutlineUserGroup className="text-2xl" />
-          </button>
+          </Link>
 
-          <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary">
+          <Link
+            href={"/consultant"}
+            className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary"
+          >
             <HiOutlineBell className="text-2xl" />
-          </button>
+          </Link>
           <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary md:hidden">
             <HiOutlineUser className="text-xl" />
           </button>
