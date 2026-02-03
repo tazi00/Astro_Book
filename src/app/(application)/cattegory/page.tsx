@@ -1,17 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronDown,
-  Search,
-  SlidersHorizontal,
-} from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Search, SlidersHorizontal } from "lucide-react";
 
 function CattegoryPage() {
-  const scrollContainerRef = useRef(null);
-
   const [active, setActive] = useState("All");
   const categories = [
     { name: "All", icon: null },
@@ -72,25 +64,6 @@ function CattegoryPage() {
       pattern: "kundali",
     },
   ];
-
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } =
-        scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
-  };
-
-  const scroll = (direction: string) => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 200;
-      scrollContainerRef.current?.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
 
   const renderPattern = (pattern: string, light = false) => {
     switch (pattern) {
@@ -426,7 +399,7 @@ function CattegoryPage() {
                     : "border-gray-300 text-secondary hover:bg-gray-50"
                 }`}
               >
-                {Icon && <Icon className="text-secondary" size={16} />}
+                {/* {Icon !== null && <Icon className="text-secondary" size={16} />} */}
                 {item.name}
               </button>
             );
