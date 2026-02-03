@@ -12,14 +12,14 @@ export default ConsultantPage;
 
 export function AstroCard() {
   return (
-    <div className=" bg-white rounded-2xl shadow-lg md:p-[40px] p-[20px] grid md:grid-cols-[2fr_1.5fr] grid-cols-1 gap-6  md:mx-[44px] md:my-[16px] mt-[70px] mx-[20px]">
+    <div className=" bg-white rounded-2xl shadow-lg md:p-[40px] p-[20px] grid lg:grid-cols-[2fr_1.5fr] md:grid-cols-1 grid-cols-1 gap-6  lg:mx-[44px] md:mx-[34px] md:my-[16px] mt-[70px] mx-[20px]">
       {/* Left section */}
       <div className="flex-1 flex flex-col gap-4">
         <div className="flex items-start gap-4 ">
           {/* Avatar */}
           <div className="flex flex-col items-center gap-2">
-            <div className="md:w-[232px] md:h-[232px] w-[120px] h-[120px] rounded-full bg-[#EEC2FF] flex items-center justify-center">
-              <div className="md:w-[232px] md:h-[232px] w-[120px] h-[120px] rounded-full bg-primary" />
+            <div className="lg:w-[232px] lg:h-[232px]  md:w-[150px] md:h-[150px]   w-[120px] h-[120px] rounded-full bg-[#EEC2FF] flex items-center justify-center">
+              <div className="lg:w-[232px] lg:h-[232px] md:w-[150px] md:h-[150px] w-[120px] h-[120px] rounded-full bg-primary" />
             </div>
             <button className=" text-primary text-lg font-normal hover:underline mt-1">
               Follow+
