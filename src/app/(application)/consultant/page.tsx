@@ -12,38 +12,43 @@ export default ConsultantPage;
 
 export function AstroCard() {
   return (
-    <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-6 grid grid-cols-[2fr_1.5fr] gap-6">
+    <div className=" bg-white rounded-2xl shadow-lg md:p-[40px] p-[20px] grid md:grid-cols-[2fr_1.5fr] grid-cols-1 gap-6  md:mx-[44px] md:my-[16px] mt-[70px] mx-[20px]">
       {/* Left section */}
       <div className="flex-1 flex flex-col gap-4">
-        <div className="flex items-start gap-4 pt-8">
+        <div className="flex items-start gap-4 ">
           {/* Avatar */}
-          <div className="w-50 h-50 rounded-full bg-purple-200 flex items-center justify-center">
-            <div className="w-50 h-50 rounded-full bg-primary" />
+          <div className="flex flex-col items-center gap-2">
+            <div className="md:w-[232px] md:h-[232px] w-[120px] h-[120px] rounded-full bg-[#EEC2FF] flex items-center justify-center">
+              <div className="md:w-[232px] md:h-[232px] w-[120px] h-[120px] rounded-full bg-primary" />
+            </div>
+            <button className=" text-primary text-lg font-normal hover:underline mt-1">
+              Follow+
+            </button>
           </div>
 
           {/* Info */}
           <div className="flex-1">
-            <h2 className="text-3xl font-semibold text-secondary">
+            <h2 className="md:text-3xl text-xl font-medium text-secondary">
               Suprio Karmakar
             </h2>
-            <p className="text-lg text-secondary mb-1.5">Vedic</p>
-            <p className="text-sm text-secondary">Bengali, English, Hindi</p>
+            <p className="md:text-xl text-lg text-secondary mb-1">Vedic</p>
+            <p className=" text-sm text-secondary">Bengali, English, Hindi</p>
             <p className="text-sm text-secondary">Exp: 15 Years</p>
 
             {/* Rating */}
-            <div className="flex flex-col items-start gap-0 mt-1">
-              <div className="text-purple-600 text-sm">★★★★★</div>
-              <span className="text-[10px] text-primary font-semibold">
+            <div className="flex flex-col items-start  mt-2.5">
+              <div className="text-primary text-xl leading-none">★★★★★</div>
+              <span className="text-xs text-primary font-normal">
                 1031 reviews
               </span>
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center">
-              <button className="px-4 py-2 text-sm rounded-full border border-purple-500 text-purple-600 hover:bg-purple-50 transition">
+            <div className="flex items-center mt-4">
+              <button className=" text-xs  text-primary bg-primary/30 transitio max-w-[76px] font-semibold w-full h-[30px] min-h-[30px] flex items-center justify-center">
                 ₹199
               </button>
-              <button className="px-5 py-2 text-sm rounded-full bg-purple-600 text-white hover:bg-purple-700 transition">
+              <button className=" text-xs  bg-primary text-white hover:bg-primary/80 transition max-w-[76px] w-full h-[30px] min-h-[30px] flex items-center justify-center">
                 Book Now
               </button>
             </div>
@@ -51,12 +56,9 @@ export function AstroCard() {
         </div>
 
         {/* Follow */}
-        <button className="w-fit text-purple-600 text-sm font-medium hover:underline">
-          Follow+
-        </button>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-black text-justify">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
           nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
           volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -69,7 +71,7 @@ export function AstroCard() {
       </div>
 
       {/* Right image section */}
-      <div className="w-full rounded-xl overflow-hidden bg-gradient-to-br from-indigo-900 to-purple-900 flex items-center justify-center">
+      <div className="w-full  overflow-hidden bg-linear-to-br from-indigo-900 to-purple-900 flex items-center justify-center h-[300px] ">
         <img
           src="/astro-banner.jpg"
           alt="Astro Book"

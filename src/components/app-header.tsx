@@ -21,7 +21,7 @@ function AppHeader() {
   const toggleSidebar = useSidebarStore((s) => s.toggle);
 
   return (
-    <header className="bg-[#F5E5F5] border-b md:static w-full top-0 left-0 fixed border-gray-200 ">
+    <header className="bg-[#FAF3FA] border-b md:static w-full top-0 left-0 fixed border-gray-200 ">
       <div className="grid grid-cols-2 lg:grid-cols-[1fr_520px_1fr] md:grid-cols-[220px_1fr_220px] items-center md:px-[24px] lg:h-[80px] md:h-[60px] pt-3  pb-1 md:pt-0 md:pb-0 px-[10px]">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
@@ -31,14 +31,15 @@ function AppHeader() {
               onClick={toggleSidebar}
             />
           </div>
-
-          <Image
-            src="/logo.svg"
-            alt="Logo"
-            width={146}
-            height={35}
-            className="md:w-[146px] h-[35px] w-[120px]  "
-          />
+          <Link href={"/"}>
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={146}
+              height={35}
+              className="md:w-[146px] h-[35px] w-[120px]  "
+            />
+          </Link>
           <AstroInput placeholder="Search" />
         </div>
         <nav className=" justify-center items-center grid md:grid-cols-5 grid-cols-6  md:h-full md:static fixed left-0 bottom-0 w-full md:bg-transparent bg-[#F5E5F5] h-[60px] md:h-none">

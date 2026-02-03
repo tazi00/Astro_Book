@@ -86,21 +86,21 @@ export default function ExplorePage() {
       </div>
 
       <div className="mt-10 px-4 pb-24">
-        <h3 className="md:text-lg text-2xl font-semibold text-primary flex flex-col items-center mb-4">
+        <h3 className="md:text-xl text-[26px] leading-7 text-center max-w-[360px] mx-auto font-medium  text-primary flex flex-col items-center mb-4">
           How talking to an astrologer can help you?
-          <span className=" text-black text-xl font-medium">
+          <span className=" text-black text-base font-medium">
             24*7 Astrology consultation
           </span>
         </h3>
 
-        <p className="text-base font-light text-secondary mb-4 text-justify">
+        <p className="text-lg font-light text-secondary/70 mb-4 text-justify">
           Facing financial uncertainty? Or simply wondering what day to host
           that big-fat, dreamy and maybe sustainable wedding of yours? Well,
           AstroTalk’s astrology consultation services, which connect you with
           over 500 astrologers online, can be your one-stop destination to find
           answers to all such queries.
         </p>
-        <p className="text-base font-light text-secondary mb-4 text-justify">
+        <p className="text-lg font-light text-secondary/70 mb-4 text-justify">
           Astrology is a predictive science with its own sets of methods, claims
           and findings that have forever inspired and allowed people with
           insights into different aspects of their life. These aspects include
@@ -112,7 +112,7 @@ export default function ExplorePage() {
           and only wish to come out of it. Well, that is one time when astrology
           and astrologers could be your saviou
         </p>
-        <p className="text-base font-light text-secondary mb-4 text-justify">
+        <p className="text-lg font-light text-secondary/70 mb-4 text-justify">
           If you ask a Vedic astrologer what prompts all the happenings in our
           life, they will tell you how it all circles around the movement and
           the shifting of planets. These Navgrahas, as we call them in
