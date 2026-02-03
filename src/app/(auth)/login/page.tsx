@@ -51,7 +51,7 @@ export default function LoginPage() {
           <input
             type="text"
             placeholder="Phone number, username, or email"
-            className="w-full border border-[#9D0399] rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-gray-400"
+            className="w-full border border-[#9D0399] rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-gray-400 "
           />
 
           {/* Button */}
@@ -63,8 +63,11 @@ export default function LoginPage() {
           </Link>
 
           {/* Remember */}
-          <div className="flex items-center mb-[22px] text-[16px] text-gray-600 max-w-max mx-auto">
-            <input type="checkbox" className="mr-2 accent-[#9D0399]" />
+          <div className="flex items-center mb-[12px] text-[16px] text-gray-600 max-w-max mx-auto">
+            <input
+              type="checkbox"
+              className="mr-2 mt-[-3px] accent-[#9D0399]"
+            />
             Remember Me
           </div>
 
