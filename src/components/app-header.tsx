@@ -21,7 +21,7 @@ function AppHeader() {
   const toggleSidebar = useSidebarStore((s) => s.toggle);
 
   return (
-    <header className="bg-[#FAF3FA] border-b md:static w-full top-0 left-0 fixed border-gray-200 ">
+    <header className="bg-[#FAF3FA] border-b md:static w-full top-0 left-0 fixed border-gray-200 z-50 ">
       <div className="grid grid-cols-2 lg:grid-cols-[1fr_520px_1fr] md:grid-cols-[220px_1fr_220px] items-center md:px-[24px] lg:h-[80px] md:h-[60px] pt-3  pb-1 md:pt-0 md:pb-0 px-[10px]">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
@@ -57,9 +57,12 @@ function AppHeader() {
             <MdOutlineExplore className="text-2xl" />
           </Link>
 
-          <button className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary">
+          <Link
+            href={"/cattegory"}
+            className="flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer  text-secondary  hover:text-primary"
+          >
             <HiOutlineUserGroup className="text-2xl" />
-          </button>
+          </Link>
 
           <Link
             href={"/consultant"}

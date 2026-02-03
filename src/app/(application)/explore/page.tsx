@@ -31,11 +31,11 @@ export default function ExplorePage() {
 
   return (
     <div className="bg-white">
-      <div className=" w-full flex items-center justify-start border-b border-secondary lg:py-2 py-1 mt-[60px] md:mt-0">
+      <div className=" flex items-center justify-start border-b border-secondary lg:py-2 py-1 mt-[60px] md:mt-0 px-4">
         {/* Left Section */}
-        <div className="flex items-center  gap-9 overflow-x-auto no-scrollbar">
+        <div className="flex items-center  lg:gap-9 md:gap-5  gap-3 overflow-x-auto no-scrollbar md:w-max w-[330px]">
           {/* Filter Button */}
-          <button className="flex items-center gap-2 px-2 py-1 rounded-full border border-gray-300 text-[12px] font-medium hover:bg-gray-50 transition lg:ms-10 md:ms-5 ms-5">
+          <button className="flex items-center gap-2 px-2 py-1 rounded-full border border-gray-300 text-[12px] font-medium hover:bg-gray-50 transition lg:ms-8 md:ms-5 ms-5">
             <SlidersHorizontal className="text-secondary" size={16} />
             Filter
           </button>
@@ -86,7 +86,7 @@ export default function ExplorePage() {
       </div>
 
       <div className="mt-10 px-4 pb-24">
-        <h3 className="md:text-xl text-[26px] leading-7 text-center max-w-[360px] mx-auto font-medium  text-primary flex flex-col items-center mb-4">
+        <h3 className="md:text-xl text-[26px] leading-7 text-center lg:max-w-full max-w-[360px] mx-auto font-medium  text-primary flex flex-col items-center mb-4">
           How talking to an astrologer can help you?
           <span className=" text-black text-base font-medium">
             24*7 Astrology consultation
@@ -140,26 +140,26 @@ export function AstrologerCard() {
 
         {/* Info */}
         <div>
-          <h2 className="text-sm font-semibold text-secondary mb-1">
+          <h2 className="text-xs font-semibold text-secondary mb-1">
             Suprio Karmakar
           </h2>
 
-          <p className="text-[12px] text-secondary">Vedic</p>
+          <p className="text-[10px] text-secondary">Vedic</p>
 
-          <p className="text-[12px] text-secondary">Bengali, English, Hindi</p>
+          <p className="text-[10px] text-secondary">Bengali, English, Hindi</p>
 
-          <p className="text-[12px] text-secondary">Exp: 15 Years</p>
+          <p className="text-[10px] text-secondary">Exp: 15 Years</p>
 
           {/* Rating */}
           <div className="flex flex-col items-start  mt-1">
             <div className="flex">
               {[...Array(4)].map((_, i) => (
-                <Star key={i} size={12} className="text-primary fill-primary" />
+                <Star key={i} size={10} className="text-primary fill-primary" />
               ))}
-              <Star size={12} className="text-gray-300 fill-gray-300" />
+              <Star size={10} className="text-gray-300 fill-gray-300" />
             </div>
 
-            <span className="text-[12px] text-primary ">1031 reviews</span>
+            <span className="text-[10px] text-primary ">1031 reviews</span>
           </div>
         </div>
       </div>

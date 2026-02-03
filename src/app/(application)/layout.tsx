@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import AppSidebar from "@/components/app-sidebar";
 import AppHeader from "@/components/app-header";
-import AppAdvertise from "@/components/app-advertise";
 
 export const metadata: Metadata = {
   title: "Create Next App",

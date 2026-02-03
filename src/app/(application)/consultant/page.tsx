@@ -1,10 +1,193 @@
+"use client";
+
+import { ConsultantSlider } from "@/components/consultant-slider";
 import React from "react";
 
+interface ConsultationItem {
+  id: string | number;
+  title: string;
+  price: number;
+  image: string;
+}
+
 function ConsultantPage() {
+  const consultationData: ConsultationItem[] = [
+    {
+      id: 1,
+      title: "Couples Harmony",
+      price: 4000,
+      image: "/images/image.png",
+    },
+    {
+      id: 2,
+      title: "Love Healing",
+      price: 1000,
+      image: "/images/image.png",
+    },
+    {
+      id: 3,
+      title: "Career Healing",
+      price: 3000,
+      image: "/images/image.png",
+    },
+    {
+      id: 4,
+      title: "Medical Healing",
+      price: 999,
+      image: "/images/image.png",
+    },
+    {
+      id: 5,
+      title: "Financial Guidance",
+      price: 2500,
+      image: "/images/image.png",
+    },
+    {
+      id: 6,
+      title: "Spiritual Growth",
+      price: 1500,
+      image: "/images/image.png",
+    },
+  ];
+
   return (
-    <div>
+    <>
       <AstroCard />
-    </div>
+      <section className="pt-10 pb-10 px-5 lg:px-[40px] md:px-[20px] border-b border-secondary ">
+        <div className="">
+          <h3 className="text-3xl text-secondary font-medium mb-5">
+            Consultations
+          </h3>
+        </div>
+        <ConsultantSlider
+          items={consultationData}
+          config={{
+            responsive: {
+              mobile: 2,
+              tablet: 3,
+              desktop: 4,
+            },
+            gap: 40,
+            showScrollbar: true,
+            showArrows: true,
+            autoScroll: false,
+          }}
+        >
+          {(item) => (
+            <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 flex flex-col h-ful w-fulll">
+              <div className="relative overflow-hidden bg-gray-200 rounded-2xl ">
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  className="w-full lg:h-[200px] h-[150px] object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="px-4 py-2 flex flex-col grow">
+                <h4 className="font-medium lg:text-base text-lg text-black mb-2">
+                  {item.title}
+                </h4>
+                <div className="flex items-center justify-between">
+                  <p className="text-secondary font-bold text-lg mb-4">
+                    ₹{item.price.toLocaleString()}
+                  </p>
+                  <button className=" text-xs  bg-primary text-white hover:bg-primary/80 transition max-w-[76px] w-full h-[30px] min-h-[30px] flex items-center justify-center">
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </ConsultantSlider>
+      </section>
+      <section className="pt-4 pb-10 px-[40px] border-b border-secondary ">
+        <div className="">
+          <h3 className="text-3xl text-secondary font-medium mb-5">Courses</h3>
+        </div>
+        <div className="">
+          <ConsultantSlider
+            items={consultationData}
+            config={{
+              responsive: {
+                mobile: 1.5,
+                tablet: 2.5,
+                desktop: 4,
+              },
+              gap: 40,
+              showScrollbar: true,
+              showArrows: true,
+              autoScroll: false,
+            }}
+          >
+            {(item) => (
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 flex flex-col h-full">
+                <div className="relative overflow-hidden bg-gray-200 rounded-2xl ">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="px-4 py-2 flex flex-col grow">
+                  <h4 className="font-medium text-base md:text-lg text-black mb-2">
+                    {item.title}
+                  </h4>
+                  <div className="flex items-center justify-between">
+                    <p className="text-secondary font-bold text-lg mb-4">
+                      ₹{item.price.toLocaleString()}
+                    </p>
+                    <button className=" text-xs  bg-primary text-white hover:bg-primary/80 transition max-w-[76px] w-full h-[30px] min-h-[30px] flex items-center justify-center">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </ConsultantSlider>
+          <div className="h-[1px] bg-white py-10">
+            <div className="border border-secondary h-[1px]"></div>
+          </div>
+          <ConsultantSlider
+            items={consultationData}
+            config={{
+              responsive: {
+                mobile: 1.5,
+                tablet: 2.5,
+                desktop: 4,
+              },
+              gap: 40,
+              showScrollbar: true,
+              showArrows: true,
+              autoScroll: false,
+            }}
+          >
+            {(item) => (
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 flex flex-col h-full">
+                <div className="relative overflow-hidden bg-gray-200 rounded-2xl ">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="px-4 py-2 flex flex-col grow">
+                  <h4 className="font-medium text-base md:text-lg text-black mb-2">
+                    {item.title}
+                  </h4>
+                  <div className="flex items-center justify-between">
+                    <p className="text-secondary font-bold text-lg mb-4">
+                      ₹{item.price.toLocaleString()}
+                    </p>
+                    <button className=" text-xs  bg-primary text-white hover:bg-primary/80 transition max-w-[76px] w-full h-[30px] min-h-[30px] flex items-center justify-center">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </ConsultantSlider>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -71,7 +254,7 @@ export function AstroCard() {
       </div>
 
       {/* Right image section */}
-      <div className="w-full  overflow-hidden bg-linear-to-br from-indigo-900 to-purple-900 flex items-center justify-center h-[300px] ">
+      <div className="w-full  overflow-hidden bg-linear-to-br from-indigo-900 to-purple-900 flex items-center justify-center lg:h-full h-[300px] ">
         <img
           src="/astro-banner.jpg"
           alt="Astro Book"
