@@ -1,3 +1,5 @@
+"use client";
+
 import { useIsDesktop } from "@/hooks/useMedia";
 import { useMounted } from "@/hooks/useMounted";
 import { CiSearch } from "react-icons/ci";

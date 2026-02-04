@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="bg-[#0B1D5B] py-10 text-center text-sm text-gray-300">
+    <footer className="bg-tertiary py-10 text-center text-sm text-gray-300">
       <div className="flex justify-center gap-3 flex-wrap">
         <Link href="/about" className="hover:text-white transition">
           About Us

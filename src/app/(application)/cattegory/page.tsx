@@ -3,69 +3,8 @@
 import { useState } from "react";
 import { ChevronDown, Search, SlidersHorizontal } from "lucide-react";
 
-function CattegoryPage() {
-  const [active, setActive] = useState("All");
-  const categories = [
-    { name: "All", icon: null },
-    { name: "Love", icon: null },
-    { name: "Education", icon: null },
-    { name: "Marriage", icon: null },
-    { name: "Health", icon: null },
-    { name: "Legal", icon: null },
-    { name: "Finance", icon: null },
-    { name: "Remedies", icon: null },
-  ];
 
-  const cards = [
-    {
-      title: "Numerology",
-      gradient: "from-purple-900 via-purple-800 to-purple-900",
-      pattern: "numbers",
-    },
-    {
-      title: "Vastu",
-      gradient: "from-amber-50 to-amber-100",
-      pattern: "vastu",
-      light: true,
-    },
-    {
-      title: "Vedic",
-      gradient: "from-yellow-300 via-yellow-400 to-yellow-300",
-      pattern: "vedic",
-    },
-    {
-      title: "Reki",
-      gradient: "from-purple-600 via-fuchsia-500 to-purple-600",
-      pattern: "reki",
-    },
-    {
-      title: "KP Astro",
-      gradient: "from-orange-400 via-orange-500 to-orange-600",
-      pattern: "kp",
-    },
-    {
-      title: "Tarot",
-      gradient: "from-slate-700 via-slate-600 to-slate-700",
-      pattern: "tarot",
-    },
-    {
-      title: "Past Life",
-      gradient: "from-blue-600 via-cyan-500 to-blue-600",
-      pattern: "pastlife",
-    },
-    {
-      title: "Palmistry",
-      gradient: "from-gray-900 via-gray-800 to-black",
-      pattern: "palmistry",
-    },
-    {
-      title: "Kundali",
-      gradient: "from-orange-300 via-orange-400 to-orange-500",
-      pattern: "kundali",
-    },
-  ];
-
-  const renderPattern = (pattern: string, light = false) => {
+  export const renderPattern = (pattern: string, light = false) => {
     switch (pattern) {
       case "numbers":
         return (
@@ -371,68 +310,92 @@ function CattegoryPage() {
     }
   };
 
+  
+function CattegoryPage() {
+  const [active, setActive] = useState("All");
+  const categories = [
+    { name: "All", icon: null },
+    { name: "Love", icon: null },
+    { name: "Education", icon: null },
+    { name: "Marriage", icon: null },
+    { name: "Health", icon: null },
+    { name: "Legal", icon: null },
+    { name: "Finance", icon: null },
+    { name: "Remedies", icon: null },
+  ];
+
+  const cards = [
+    {
+      title: "Numerology",
+      gradient: "from-purple-900 via-purple-800 to-purple-900",
+      pattern: "numbers",
+    },
+    {
+      title: "Vastu",
+      gradient: "from-amber-50 to-amber-100",
+      pattern: "vastu",
+      light: true,
+    },
+    {
+      title: "Vedic",
+      gradient: "from-yellow-300 via-yellow-400 to-yellow-300",
+      pattern: "vedic",
+    },
+    {
+      title: "Reki",
+      gradient: "from-purple-600 via-fuchsia-500 to-purple-600",
+      pattern: "reki",
+    },
+    {
+      title: "KP Astro",
+      gradient: "from-orange-400 via-orange-500 to-orange-600",
+      pattern: "kp",
+    },
+    {
+      title: "Tarot",
+      gradient: "from-slate-700 via-slate-600 to-slate-700",
+      pattern: "tarot",
+    },
+    {
+      title: "Past Life",
+      gradient: "from-blue-600 via-cyan-500 to-blue-600",
+      pattern: "pastlife",
+    },
+    {
+      title: "Palmistry",
+      gradient: "from-gray-900 via-gray-800 to-black",
+      pattern: "palmistry",
+    },
+    {
+      title: "Kundali",
+      gradient: "from-orange-300 via-orange-400 to-orange-500",
+      pattern: "kundali",
+    },
+  ];
+
+
+
   return (
-    <div className="bg-white">
-      {/* Scrollable Category Bar */}
-      <div className=" flex items-center justify-start border-b border-secondary lg:py-2 py-1 mt-[60px] md:mt-0 px-4">
-        {/* Left Section */}
-        <div className="flex items-center  lg:gap-9 md:gap-5  gap-3 overflow-x-auto no-scrollbar md:w-max w-[330px]">
-          {/* Filter Button */}
-          <button className="flex items-center gap-2 px-2 py-1 rounded-full border border-gray-300 text-[12px] font-medium hover:bg-gray-50 transition lg:ms-8 md:ms-5 ms-5">
-            <SlidersHorizontal className="text-secondary" size={16} />
-            Filter
-          </button>
-
-          {/* Category Pills */}
-          {categories.map((item) => {
-            const Icon = item.icon;
-            const isActive = active === item.name;
-
-            return (
-              <button
-                key={item.name}
-                onClick={() => setActive(item.name)}
-                className={`flex items-center gap-2 px-2 py-1 rounded-full text-[12px] font-medium border transition whitespace-nowrap
-                ${
-                  isActive
-                    ? "bg-primary text-white border-primary"
-                    : "border-gray-300 text-secondary hover:bg-gray-50"
-                }`}
-              >
-                {/* {Icon !== null && <Icon className="text-secondary" size={16} />} */}
-                {item.name}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right Section */}
-        <button className="ms-auto p-2 rounded-full border border-gray-300 hover:bg-gray-50 transition">
-          <Search size={18} />
-        </button>
-      </div>
-      {/* Cards Grid */}
-      <div className="lg:px-10 px-5 lg:py-2 pt-5 pb-30">
-        <div className="grid grid-cols-3 lg:gap-[20px_40px] gap-[10px_20px] ">
-          {cards.map((card, index) => (
-            <div key={index}>
-              <div
-                className={`relative aspect-square rounded-2xl bg-linear-to-br ${card.gradient} overflow-hidden shadow-lg cursor-pointer transform transition-transform  active:scale-95`}
-              >
-                {renderPattern(card.pattern, card.light)}
-              </div>
-              <h4 className="text-center text-[12px] lg:text-[14px] mt-2 text-primary font-bold">
-                {card.title}
-              </h4>
+    <div className="lg:px-10 px-5 lg:py-2 pt-5 pb-30">
+      <div className="grid grid-cols-3 lg:gap-[20px_40px] gap-[10px_20px] ">
+        {cards.map((card, index) => (
+          <div key={index}>
+            <div
+              className={`relative aspect-square rounded-2xl bg-linear-to-br ${card.gradient} overflow-hidden shadow-lg cursor-pointer transform transition-transform  active:scale-95`}
+            >
+              {renderPattern(card.pattern, card.light)}
             </div>
-          ))}
-        </div>
-
-        {/* Scroll Down Indicator */}
-        <div className="flex justify-center mt-6">
-          <div className="w-8 h-8 rounded-full border-2 border-gray-400 flex items-center justify-center animate-bounce">
-            <ChevronDown className="w-5 h-5 text-gray-400" />
+            <h4 className="text-center text-[12px] lg:text-[14px] mt-2 text-primary font-bold">
+              {card.title}
+            </h4>
           </div>
+        ))}
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="flex justify-center mt-6">
+        <div className="w-8 h-8 rounded-full border-2 border-gray-400 flex items-center justify-center animate-bounce">
+          <ChevronDown className="w-5 h-5 text-gray-400" />
         </div>
       </div>
     </div>

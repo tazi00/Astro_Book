@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AppSidebar from "@/components/app-sidebar";
 import AppHeader from "@/components/app-header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +22,7 @@ export default function AppLayout({
         </div>
         <div className="overflow-y-scroll h-screen bg-white">{children}</div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }
