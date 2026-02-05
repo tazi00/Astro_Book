@@ -3,7 +3,7 @@ import React from "react";
 
 function OrderPage() {
   return (
-    <div className="bg-pink-100 mt-10 shadow-xl max-w-[1020px] mx-auto ">
+    <div className="bg-primary/5 mt-10 shadow-xl max-w-[1040px] mx-auto mb-30">
       <BookingManager />
     </div>
   );

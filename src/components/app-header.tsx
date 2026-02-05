@@ -44,10 +44,13 @@ function AppHeader() {
         </div>
         <nav className=" justify-center items-center grid md:grid-cols-5 grid-cols-6  md:h-full md:static fixed left-0 bottom-0 w-full md:bg-transparent bg-[#F5E5F5] h-[60px] md:h-none">
           {/* Active */}
-          <button className="relative flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer text-primary">
+          <Link
+            href="/"
+            className="relative flex items-center justify-center lg:h-[80px] md:h-[60px]  cursor-pointer text-primary"
+          >
             <IoHome className="text-2xl text-primary" />
             <div className="absolute bottom-0 w-full h-1 bg-primary hidden md:block"></div>
-          </button>
+          </Link>
 
           {/* Inactive */}
           <Link

@@ -232,94 +232,191 @@ const BookingManager = () => {
     return (
       <div
         key={booking.id}
-        className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-4"
+        className="bg-transaprent rounded-lg shadow-sm border border-gray-200 p-6 mb-4"
       >
-        <div className="flex gap-6">
+        <div className="flex gap-3">
           {/* Left: Image and basic info */}
           <div className="flex-shrink-0">
             <img
               src={booking.image}
               alt={booking.title}
-              className="w-20 h-20 rounded-lg object-cover"
+              className="w-26 h-26 border rounded-lg object-cover"
             />
           </div>
 
-          {/* Middle: Details */}
-          <div className="flex-1 grid grid-cols-3 gap-6">
-            {/* Column 1: Title and Schedule */}
-            <div className="space-y-1">
-              <h3 className="font-semibold text-gray-900">{booking.title}</h3>
-              <p className="text-sm text-gray-600">by {booking.provider}</p>
+          {/* Middle: Details - Dynamic grid based on tab type */}
+          <div
+            className={`flex-1 grid ${type === "products" ? "grid-cols-[120px_1fr]" : "grid-cols-[120px_175px_1fr]"} gap-2`}
+          >
+            {/* Column 1: Title and Schedule - Always shown for all tabs */}
+            <div className="space-y-0.5 border-e border-secondary">
+              <h3 className="font-normal text-sm text-black">
+                {booking.title}
+              </h3>
+              <p className="text-xs text-gray-600">by {booking.provider}</p>
               {booking.status === "completed" && type === "consultations" && (
-                <p className="text-sm text-gray-600">Completed On</p>
+                <p className="text-xs text-gray-600">Completed On</p>
               )}
               {booking.status === "ongoing" && type === "courses" && (
-                <p className="text-sm text-gray-600">Ongoing</p>
+                <p className="text-xs text-gray-600">Ongoing</p>
               )}
               {booking.status === "completed" && type === "courses" && (
-                <p className="text-sm text-gray-600">Completed On</p>
+                <p className="text-xs text-gray-600">Completed On</p>
               )}
               {booking.status === "delivered" && type === "products" && (
-                <p className="text-sm text-gray-600">{booking.time}</p>
+                <p className="text-xs text-gray-600">{booking.time}</p>
               )}
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-xs font-medium text-gray-900">
                 {booking.time !== "Arriving" && booking.time !== "Delivered on"
                   ? booking.time
                   : ""}
               </p>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Calendar className="w-4 h-4" />
+              <div className="flex items-center gap-1 text-xs text-gray-600">
+                <Calendar size={12} className="" />
                 <span>{booking.date}</span>
                 {booking.date.includes("Tue") && <span>, Tue</span>}
               </div>
               {booking.location && (
-                <button className="text-sm text-purple-600 hover:text-purple-700">
+                <button className="text-xs text-primary hover:text-primary/80 ">
                   {booking.location} {booking.location === "Reschedule" && "⟳"}
                 </button>
               )}
             </div>
 
-            {/* Column 2: Session Details or Progress */}
-            <div className="space-y-2">
-              {!showProgressBar && booking.status === "upcoming" && (
-                <>
-                  <p className="text-sm text-gray-600">
-                    Add details before your session
-                  </p>
-                  <div className="space-y-1">
-                    <p className="text-sm">
-                      <span className="text-gray-600">Name : </span>
-                      <span className="font-medium">Ankush Sarkar</span>
-                      <ExternalLink className="w-3 h-3 inline ml-1" />
+            {/* Column 2: Session Details - For consultations and courses */}
+            {type !== "products" && (
+              <div className="space-y-0.5 border-e border-secondary">
+                {type === "consultations" && booking.status === "upcoming" && (
+                  <>
+                    <p className="text-xs text-gray-600">
+                      Add details before your session
                     </p>
-                    <p className="text-sm text-gray-600">DOB : 12/02/1998</p>
-                    <button className="flex items-center gap-1 text-sm text-purple-600 hover:text-purple-700">
-                      <Upload className="w-4 h-4" />
-                      Upload file
-                    </button>
-                  </div>
-                </>
-              )}
-              {!showProgressBar && booking.status === "completed" && (
-                <>
-                  <p className="text-sm font-medium text-gray-900">
-                    Session Details
-                  </p>
-                  <div className="space-y-1">
-                    <p className="text-sm">
-                      <span className="text-gray-600">Name : </span>
-                      <span className="font-medium">Ankush Sarkar</span>
+                    <div className="space-y-1">
+                      <p className="text-xs">
+                        <span className="text-gray-600">Name : </span>
+                        <span className="font-medium">Ankush Sarkar</span>
+                        <ExternalLink className="w-3 h-3 inline ml-1" />
+                      </p>
+                      <p className="text-xs text-gray-600">DOB : 12/02/1998</p>
+                      <button className="flex items-center gap-1 text-xs text-purple-600 hover:text-purple-700">
+                        <Upload className="w-4 h-4" />
+                        Upload file
+                      </button>
+                    </div>
+                  </>
+                )}
+                {type === "consultations" && booking.status === "completed" && (
+                  <>
+                    <p className="text-xs font-medium text-gray-900">
+                      Session Details
                     </p>
-                    <p className="text-sm text-gray-600">DOB : 12/02/1998</p>
-                    <p className="text-sm text-purple-600">Uploaded</p>
+                    <div className="space-y-1">
+                      <p className="text-xs">
+                        <span className="text-gray-600">Name : </span>
+                        <span className="font-medium">Ankush Sarkar</span>
+                      </p>
+                      <p className="text-xs text-gray-600">DOB : 12/02/1998</p>
+                      <p className="text-xs text-purple-600">Uploaded</p>
+                    </div>
+                  </>
+                )}
+                {type === "courses" && booking.status === "upcoming" && (
+                  <>
+                    <p className="text-xs text-gray-600">
+                      Add details before your session
+                    </p>
+                    <div className="space-y-1">
+                      <p className="text-xs">
+                        <span className="text-gray-600">Name : </span>
+                        <span className="font-medium">Ankush Sarkar</span>
+                        <ExternalLink className="w-3 h-3 inline ml-1" />
+                      </p>
+                      <p className="text-xs text-gray-600">DOB : 12/02/1998</p>
+                      <button className="flex items-center gap-1 text-xs text-purple-600 hover:text-purple-700">
+                        <Upload className="w-4 h-4" />
+                        Upload file
+                      </button>
+                    </div>
+                  </>
+                )}
+                {type === "courses" && booking.status === "ongoing" && (
+                  <>
+                    <p className="text-xs font-medium text-gray-900">
+                      Session Details
+                    </p>
+                    <div className="space-y-1">
+                      <p className="text-xs">
+                        <span className="text-gray-600">Name : </span>
+                        <span className="font-medium">Ankush Sarkar</span>
+                      </p>
+                      <p className="text-xs text-gray-600">DOB : 12/02/1998</p>
+                      <p className="text-xs text-purple-600">Uploaded</p>
+                    </div>
+                  </>
+                )}
+                {type === "courses" && booking.status === "completed" && (
+                  <>
+                    <p className="text-xs font-medium text-gray-900">
+                      Session Details
+                    </p>
+                    <div className="space-y-1">
+                      <p className="text-xs">
+                        <span className="text-gray-600">Name : </span>
+                        <span className="font-medium">Ankush Sarkar</span>
+                      </p>
+                      <p className="text-xs text-gray-600">DOB : 12/02/1998</p>
+                      <p className="text-xs text-purple-600">Uploaded</p>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Column 2 or 3: Notes textarea (consultations) OR Progress Bar (courses/products) */}
+            <div className="space-y-2 border-e border-secondary pr-2">
+              {/* For Consultations: Show textarea notes */}
+              {showNote && (
+                <div className="space-y-0">
+                  <textarea
+                    placeholder={
+                      booking.status === "upcoming"
+                        ? "Describe your issue with 0/200 words"
+                        : "I want to get married."
+                    }
+                    className="w-full px-2 py-2 border border-gray-900 rounded-sm text-xs resize-none focus:ring-2 focus:ring-primary focus:border-transparent h-[60px] "
+                    rows={4}
+                    maxLength={200}
+                    value={noteInputs[booking.id] || ""}
+                    onChange={(e) =>
+                      handleNoteChange(booking.id, e.target.value)
+                    }
+                  />
+                  <div className="flex justify-end">
+                    {booking.status === "upcoming" ? (
+                      <button
+                        onClick={() => handleSave(booking.id)}
+                        className="text-xs text-primary hover:text-primary font-medium"
+                      >
+                        Save
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleDone(booking.id)}
+                        className="text-xs text-primary hover:text-primary font-medium"
+                      >
+                        Done
+                      </button>
+                    )}
                   </div>
-                </>
+                </div>
               )}
+
+              {/* For Courses & Products: Show progress bar */}
               {showProgressBar && (
                 <div className="pt-2">
                   {renderProgressBar(booking.status, type)}
                   {booking.status === "completed" && type === "courses" && (
-                    <button className="text-sm text-purple-600 hover:text-purple-700 flex items-center gap-1 mt-2">
+                    <button className="text-xs text-purple-600 hover:text-purple-700 flex items-center gap-1 mt-2">
                       <Download className="w-4 h-4" />
                       Download Certificate
                     </button>
@@ -333,91 +430,38 @@ const BookingManager = () => {
                 </div>
               )}
             </div>
-
-            {/* Column 3: Notes or Booking Info */}
-            <div className="space-y-2">
-              {showNote ? (
-                <div className="space-y-2">
-                  <textarea
-                    placeholder={
-                      booking.status === "upcoming"
-                        ? "Describe your issue with 0/200 words"
-                        : "I want to get married."
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm resize-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    rows={4}
-                    maxLength={200}
-                    value={noteInputs[booking.id] || ""}
-                    onChange={(e) =>
-                      handleNoteChange(booking.id, e.target.value)
-                    }
-                  />
-                  <div className="flex justify-end">
-                    {booking.status === "upcoming" ? (
-                      <button
-                        onClick={() => handleSave(booking.id)}
-                        className="text-sm text-purple-600 hover:text-purple-700 font-medium"
-                      >
-                        Save
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleDone(booking.id)}
-                        className="text-sm text-purple-600 hover:text-purple-700 font-medium"
-                      >
-                        Done
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-1 text-sm">
-                  <p className="text-gray-600">
-                    Booking ID:{" "}
-                    <span className="font-medium text-gray-900">
-                      {booking.bookingId}
-                    </span>
-                  </p>
-                  <p className="text-gray-600">
-                    Transaction ID:{" "}
-                    <span className="font-medium text-gray-900">
-                      {booking.transactionId}
-                    </span>
-                  </p>
-                  <p className="text-gray-600">
-                    Order placed on{" "}
-                    <span className="font-medium text-gray-900">
-                      {booking.orderDate}
-                    </span>
-                  </p>
-                </div>
-              )}
-            </div>
           </div>
 
-          {/* Right: Price */}
-          <div className="flex-shrink-0 text-right">
-            <p className="text-sm text-gray-600">Price</p>
-            <p className="text-lg font-semibold text-gray-900">
-              {booking.price}
+          {/* Right: Price and Booking Details */}
+          <div className="shrink-0 text-start">
+            <p className="text-xs text-gray-600">
+              Booking ID: <span className="text-tertiary"> AB548652</span>
             </p>
-            <button className="text-sm text-purple-600 hover:text-purple-700">
+            <p className="text-xs  text-gray-600">
+              Transaction ID:{" "}
+              <span className="text-tertiary"> 694754758654</span>
+            </p>
+            <p className="text-xs  text-gray-600">
+              Order placed on:{" "}
+              <span className="text-tertiary"> 12/02/1998</span>
+            </p>
+            <p className="text-xs  text-gray-600 flex justify-between mt-2">
+              Price <span className="text-tertiary">₹ 3,373.33</span>
+            </p>
+            <button className="text-xs text-primary hover:text-primary">
               Customer details →
             </button>
           </div>
         </div>
 
         {/* Star Rating */}
-        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center gap-4">
+        <div className=" pt-3  flex items-center justify-center gap-4">
           <div className="flex gap-1">
             {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                className="w-6 h-6 fill-purple-600 text-purple-600"
-              />
+              <Star key={star} className="w-6 h-6 fill-primary text-primary" />
             ))}
           </div>
-          <button className="text-purple-600 hover:text-purple-700 font-medium">
+          <button className="text-primary hover:text-primary font-normal">
             Write a review
           </button>
         </div>
@@ -434,12 +478,12 @@ const BookingManager = () => {
     if (count === 0) return null;
 
     return (
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-purple-600">
+      <div className="mb-3">
+        <div className="flex justify-between items-center mb-2">
+          <h2 className="text-lg font-medium text-primary">
             {title} ({count})
           </h2>
-          <button className="text-purple-600 hover:text-purple-700 text-sm font-medium">
+          <button className="text-primary hover:text-primary text-sm font-medium">
             See more →
           </button>
         </div>
@@ -470,47 +514,47 @@ const BookingManager = () => {
   const cancelledBookings = currentData.filter((b) => b.status === "cancelled");
 
   return (
-    <div className=" bg-gray-200">
-      <div className=" mx-auto  p-[50px]">
+    <div className=" ">
+      <div className=" mx-auto p-[40px]">
         {/* Header */}
         <div className="mb-6">
-          <button className="bg-primary text-white px-8 py-2 rounded-sm font-medium hover:bg-purple-700">
+          <button className="bg-primary text-white px-8 py-2 rounded-sm font-medium hover:bg-primary">
             My Bookings
           </button>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-t-lg border border-gray-200">
-          <div className="flex border-b border-gray-200 bg-red-400 shadow-sm ">
+        <div className="bg-transparent shadow-xl  ">
+          <div className="flex border-b border-gray-200 justify-between max-w-[850px] mx-auto ">
             <button
               onClick={() => setActiveTab("consultations")}
-              className={`flex-1 px-6 py-4 text-center font-medium transition-colors
+              className={` px-3 py-2 text-lg text-center font-medium transition-colors
                 ${
                   activeTab === "consultations"
-                    ? "text-purple-600 border-b-2 border-purple-600"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-primary"
+                    : "text-tertiary hover:text-primary"
                 }`}
             >
               Consultations
             </button>
             <button
               onClick={() => setActiveTab("courses")}
-              className={`flex-1 px-6 py-4 text-center font-medium transition-colors
+              className={` px-3 py-2 text-lg text-center font-medium transition-colors
                 ${
                   activeTab === "courses"
-                    ? "text-purple-600 border-b-2 border-purple-600"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-primary"
+                    : "text-tertiary hover:text-primary"
                 }`}
             >
               Courses
             </button>
             <button
               onClick={() => setActiveTab("products")}
-              className={`flex-1 px-6 py-4 text-center font-medium transition-colors
+              className={` px-3 py-2 text-lg text-center font-medium transition-colors
                 ${
                   activeTab === "products"
-                    ? "text-purple-600 border-b-2 border-purple-600"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "text-primary"
+                    : "text-tertiary hover:text-primary"
                 }`}
             >
               Products
@@ -519,7 +563,7 @@ const BookingManager = () => {
         </div>
 
         {/* Content */}
-        <div className="bg-white rounded-b-lg shadow-sm border border-t-0 border-gray-200 p-8">
+        <div className="rounded-b-lg   mt-5">
           {activeTab === "consultations" && (
             <>
               {renderSection(
@@ -535,7 +579,7 @@ const BookingManager = () => {
                 "consultations",
               )}
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-purple-600">
+                <h2 className="text-xl font-semibold text-primary">
                   Cancelled (0)
                 </h2>
               </div>
@@ -562,7 +606,7 @@ const BookingManager = () => {
                 "courses",
               )}
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-purple-600">
+                <h2 className="text-xl font-semibold text-primary">
                   Cancelled (0)
                 </h2>
               </div>
@@ -583,7 +627,7 @@ const BookingManager = () => {
                 "products",
               )}
               <div className="mb-8">
-                <h2 className="text-xl font-semibold text-purple-600">
+                <h2 className="text-xl font-semibold text-primary">
                   Cancelled (0)
                 </h2>
               </div>
