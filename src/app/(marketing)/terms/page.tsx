@@ -7,23 +7,23 @@ export default function TermsDetailPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative h-[420px] bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 overflow-hidden">
+      <section className="relative h-[370px] bg-gradient-to-r from-primary via-primary to-secondary overflow-hidden">
         <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover opacity-40" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-[80px] text-white font-bold">
-            Terms & Conditions
+          <h1 className="text-white text-[76px] font-bold tracking-wide">
+            Terms & Condition
           </h1>
         </div>
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-[1100px] mx-auto py-5 px-8">
-        <h2 className="text-[#9D0399] text-[60px] font-bold mb-0">
+      <section className="max-w-[1400px] mx-auto py-5 px-8">
+        <h2 className="text-[#9D0399] text-[60px] font-semibold mb-0">
           Terms & Conditions
         </h2>
 
-        <div className="text-[18px] text-gray-700 leading-[1.9] space-y-6">
-          <p className="text-[22px] ">
+        <div className="text-[14px] text-black leading-[1.9] space-y-6">
+          <p className=" ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -35,7 +35,7 @@ export default function TermsDetailPage() {
             nulla facilisi
           </p>
 
-          <p className="text-[22px] mb-3 ">
+          <p className=" mb-3 ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -47,7 +47,7 @@ export default function TermsDetailPage() {
             nulla facilisi
           </p>
 
-          <p className="text-[22px] ">
+          <p className=" ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -59,7 +59,7 @@ export default function TermsDetailPage() {
             nulla facilisi
           </p>
 
-          <p className="text-[22px] ">
+          <p className=" ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -71,7 +71,7 @@ export default function TermsDetailPage() {
             nulla facilisi
           </p>
 
-          <p className="text-[22px] ">
+          <p className=" ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -83,7 +83,7 @@ export default function TermsDetailPage() {
             nulla facilisi
           </p>
 
-          <p className="text-[22px] ">
+          <p className=" ">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation

@@ -14,15 +14,15 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="lg:overflow-y-hidden h-screen">
+    <div className="h-screen grid grid-rows-[auto_1fr_auto]">
       <AppHeader />
-      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[250px_1fr] md:grid-cols-[220px_1fr] grid-cols-1  h-screen items-start  ">
+      <div className="max-w-[1400px] w-full mx-auto grid lg:grid-cols-[250px_1fr] md:grid-cols-[220px_1fr] grid-cols-1  items-start  ">
         <div className=" ">
           <AppSidebar />
         </div>
-        <div className="overflow-y-scroll h-screen bg-white">{children}</div>
+        <div className=" bg-white">{children}</div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

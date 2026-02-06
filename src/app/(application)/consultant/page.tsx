@@ -1,5 +1,6 @@
 "use client";
 
+import { AstroPostCard } from "@/app/(feed)/page";
 import { ConsultantSlider } from "@/components/consultant-slider";
 import React from "react";
 
@@ -186,6 +187,24 @@ function ConsultantPage() {
             )}
           </ConsultantSlider>
         </div>
+
+        <div className=" mt-10">
+          <h4 className="text-[22px] font-normal   text-tertiary">
+            {" "}
+            <span className="text-primary"> Posts from</span> Suprio Karmakar
+          </h4>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div className="mt-5">
+              <AstroPostCard post={{}} />
+              <AstroPostCard post={{}} />
+              <AstroPostCard post={{}} />
+            </div>
+            <div>
+              <RatingReviews />{" "}
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
@@ -264,3 +283,186 @@ export function AstroCard() {
     </div>
   );
 }
+
+interface Reply {
+  id: string;
+  author: string;
+  date: string;
+  content: string;
+}
+
+interface Review {
+  id: string;
+  author: string;
+  date: string;
+  rating: number;
+  content: string;
+  reply?: Reply;
+}
+
+interface RatingReviewsProps {
+  reviews?: Review[];
+  averageRating?: number;
+  totalReviews?: number;
+}
+
+const dummyReviews: Review[] = [
+  {
+    id: "1",
+    author: "Abhirup Ghosh",
+    date: "05 Dec, 2025",
+    rating: 5,
+    content:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
+  },
+  {
+    id: "2",
+    author: "Abhirup Ghosh",
+    date: "05 Dec, 2025",
+    rating: 5,
+    content: "",
+  },
+  {
+    id: "3",
+    author: "Abhirup Ghosh",
+    date: "05 Dec, 2025",
+    rating: 5,
+    content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+    reply: {
+      id: "r1",
+      author: "Suprio Karmakar",
+      date: "",
+      content:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation",
+    },
+  },
+];
+
+const RatingReviews: React.FC<RatingReviewsProps> = ({
+  reviews = dummyReviews,
+  averageRating = 4.1,
+  totalReviews = 1031,
+}) => {
+  const renderStars = (rating: number) => {
+    return (
+      <div className="flex gap-0.5">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span
+            key={star}
+            className={`text-lg ${
+              star <= rating ? "text-primary" : "text-gray-300"
+            }`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className="w-full max-w-2xl p-7 bg-primary/5  border border-gray-200">
+      {/* Header */}
+      <div className="mb-2">
+        <h2 className="text-2xl font-bold text-primary mb-2">
+          Rating & Reviews
+        </h2>
+        <div className="flex items-start gap-2">
+          <span className="text-5xl font-bold text-primary">
+            {averageRating}
+          </span>
+          <div className="flex flex-col items-start -mt-1">
+            <div className="flex gap-0.5">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <span
+                  key={star}
+                  className={`text-2xl ${
+                    star <= Math.floor(averageRating)
+                      ? "text-primary"
+                      : "text-gray-300"
+                  }`}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
+            <p className="text-primary text-sm -mt-1">{totalReviews} reviews</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Reviews List */}
+      <div className="space-y-4">
+        {reviews.map((review) => (
+          <div
+            key={review.id}
+            className="  rounded-lg shadow-md p-5 border border-gray-100"
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-full bg-purple-200 flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 text-primary"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-semibold text-xs text-gray-900">
+                  {review.author}
+                </h3>
+                <p className="text-xs text-primary -mt-1">{review.date}</p>
+              </div>
+            </div>
+
+            {/* Rating Stars */}
+            <div className="-mt-1">{renderStars(review.rating)}</div>
+
+            {/* Review Content */}
+            {review.content && (
+              <p className="text-gray-700 text-xs leading-[15px] -mt-1">
+                {review.content}
+              </p>
+            )}
+
+            {/* Nested Reply */}
+            {review.reply && (
+              <div className="mt-4 ml-6 bg-gray-50 rounded-lg p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-xs text-gray-900">
+                      {review.reply.author}
+                    </h4>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-xs leading-[15px] -mt-1">
+                  {review.reply.content}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export { RatingReviews };

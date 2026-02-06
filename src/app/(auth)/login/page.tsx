@@ -23,7 +23,7 @@ function LoginSlider() {
 
       {/* dots */}
       <div className="flex gap-2 mt-3">
-        <span className="w-2 h-2 bg-purple-500 rounded-full" />
+        <span className="w-2 h-2 bg-primary rounded-full" />
         <span className="w-2 h-2 bg-gray-300 rounded-full" />
         <span className="w-2 h-2 bg-gray-300 rounded-full" />
       </div>
@@ -44,30 +44,27 @@ export default function LoginPage() {
         <div className="w-full max-w-[400px] h-[400px] bg-white rounded-lg shadow-2xl px-[40px] pt-[50px]">
           {/* Logo */}
           <div className="flex justify-center">
-            <img src="/logo.svg" alt="" className="w-[300px] mb-3 " />
+            <img src="/logo.svg" alt="" className="w-[280px] mb-3 " />
           </div>
 
           {/* Input */}
           <input
             type="text"
             placeholder="Phone number, username, or email"
-            className="w-full border border-[#9D0399] rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-gray-400 "
+            className="w-full border border-primary rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-gray-400 "
           />
 
           {/* Button */}
           <Link
             href="/verification"
-            className="w-full mt-[16px] mb-[32px] py-2 rounded-sm bg-[#9D0399] text-white font-semibold hover:bg-[#9D0399] transition block flex justify-center items-center"
+            className="w-full mt-[16px] mb-[32px] py-2 rounded-sm bg-primary text-white font-semibold hover:bg-primary transition block flex justify-center items-center"
           >
             Send OTP
           </Link>
 
           {/* Remember */}
           <div className="flex items-center mb-[12px] text-[16px] text-gray-600 max-w-max mx-auto">
-            <input
-              type="checkbox"
-              className="mr-2 mt-[-3px] accent-[#9D0399]"
-            />
+            <input type="checkbox" className="mr-2 mt-[-3px] accent-primary" />
             Remember Me
           </div>
 

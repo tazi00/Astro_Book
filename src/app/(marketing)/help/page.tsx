@@ -60,24 +60,25 @@ export default function PolicyPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative h-[420px] bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 overflow-hidden">
+      <section className="relative h-[370px] bg-gradient-to-r from-primary via-primary to-secondary overflow-hidden">
         <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover opacity-40" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-[80px] text-white font-bold">Help</h1>
+          <h1 className=" text-white text-[76px] font-bold tracking-wide">
+            Help
+          </h1>
         </div>
       </section>
 
       {/* SEARCH BAR */}
       <section className="bg-[#9D0399] pt-5  pb-25 flex justify-center">
-        <div className="w-[900px] relative">
-          <h3 className="text-[80px] text-white font-bold">
+        <div className="w-[900px] text-center relative">
+          <h3 className="text-[50px] text-white font-bold">
             How can we help you?
           </h3>
           <input
             type="text"
-            placeholder="Search For Questions Or Topics
-"
-            className="w-full py-5 px-16 rounded-full text-[26px] outline-none border border-white h-[70px] "
+            placeholder="Search For Questions Or Topics"
+            className="w-full py-5 px-16 rounded-full text-[26px] outline-none text-white border border-white h-[70px] "
           />
           <span className="absolute left-6 bottom-0 -translate-y-1/2 text-gray-500 text-[24px]">
             🔍
@@ -86,14 +87,14 @@ export default function PolicyPage() {
       </section>
 
       {/* GRID */}
-      <section className="bg-[#f3f6fb] py-24 mt-[-60px]">
-        <div className="max-w-[950px] mx-auto px-6">
+      <section className="bg-[#f3f6fb] py-14 mt-[-60px] max-w-[900px] mx-auto">
+        <div className="max-w-[950px] mx-auto px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-10">
             {/* CARD */}
             {policyCards.map((item, _i) => (
               <div
                 key={item.slug}
-                className="bg-[#0B1D5B] rounded-[18px] px-8 py-10 flex flex-col items-center text-center text-white shadow-md"
+                className="bg-[#0B1D5B] rounded-[12px] px-8 py-10 flex flex-col items-center text-white shadow-md"
               >
                 {/* ICON */}
                 <div className="mb-6">
@@ -101,12 +102,12 @@ export default function PolicyPage() {
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-[20px] font-semibold leading-tight">
+                <h3 className="text-[20px] font-semibold leading-tight text-start w-full">
                   {item.title}
                 </h3>
 
                 {/* SUBTEXT */}
-                <p className="text-[14px] text-gray-300 mt-3 leading-snug">
+                <p className="text-[14px] text-gray-300 mt-0 leading-snug text-start w-full max-w-[140px] me-auto">
                   {item.description}
                 </p>
               </div>

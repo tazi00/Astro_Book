@@ -1,4 +1,4 @@
-import { AstroPostCard } from "@/app/(root)/page";
+import { AstroPostCard } from "@/app/(feed)/page";
 
 function CattegoryPage() {
   return (

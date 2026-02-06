@@ -9,10 +9,20 @@ import { RiFileListLine, RiGroupLine, RiUserStarLine } from "react-icons/ri";
 import { MdOutlineExplore, MdOutlinePodcasts } from "react-icons/md";
 import { FaRegHandPaper } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
+import Link from "next/link";
+import ExploreIcon from "../../public/app-header-icons/explore";
+import PodcastIcon from "../../public/app-header-icons/podcast";
+import AstroIcon from "../../public/app-header-icons/astro";
+import AstroZonIcon from "../../public/app-header-icons/astrozon";
+import SaveIcon from "../../public/sidebar-icons/save";
+import FollowingIcon from "../../public/sidebar-icons/following";
+import BlogsIcon from "../../public/sidebar-icons/blogs";
+import SettingsIcon from "../../public/sidebar-icons/settings";
 
-const SidebarItem = ({ icon: Icon, label, active, muted }: any) => {
+const SidebarItem = ({ icon: Icon, label, active, muted, link }: any) => {
   return (
-    <button
+    <Link
+      href={`${link}`}
       className={`
         flex items-center gap-3 px-3 py-2 rounded-lg text-lg font-medium
         transition-colors cursor-pointer
@@ -25,9 +35,9 @@ const SidebarItem = ({ icon: Icon, label, active, muted }: any) => {
         }
       `}
     >
-      <Icon className="text-xl" />
+      <Icon className="text-lg" />
       <span>{label}</span>
-    </button>
+    </Link>
   );
 };
 
@@ -74,18 +84,35 @@ function AppSidebar() {
             </div>
           </div>
           <div className="md:flex hidden items-center gap-3 px-3 py-2 rounded-lg text-primary font-medium text-lg">
-            <HiOutlineUser className="text-xl" />
+            <Image
+              src="/sidebar-icons/profile-icon.png"
+              width={30}
+              height={30}
+              alt=""
+            />
             <span>Suprio Karmakar</span>
           </div>
 
-          <SidebarItem icon={RiUserStarLine} label="Astrologers" />
-          <SidebarItem icon={MdOutlineExplore} label="Explore" />
-          <SidebarItem icon={MdOutlinePodcasts} label="Podcast" />
-          <SidebarItem icon={FaRegHandPaper} label="AstroZone" />
-          <SidebarItem icon={HiOutlineBookmark} label="Saved" />
-          <SidebarItem icon={RiGroupLine} label="Following" />
-          <SidebarItem icon={RiFileListLine} label="Blogs" />
-          <SidebarItem icon={HiOutlineCog} label="Settings" />
+          <SidebarItem
+            icon={ExploreIcon}
+            label="Astrologers"
+            link="/astrologers"
+          />
+          <SidebarItem icon={PodcastIcon} label="Explore" link="/explore" />
+          <SidebarItem icon={AstroIcon} label="Podcast" />
+          <SidebarItem
+            icon={AstroZonIcon}
+            label="AstroZone"
+            link="/astrozone"
+          />
+          <SidebarItem icon={SaveIcon} label="Saved" />
+          <SidebarItem icon={FollowingIcon} label="Following" />
+          <SidebarItem icon={BlogsIcon} label="Blogs" />
+          <SidebarItem
+            icon={SettingsIcon}
+            label="Settings"
+            link="/settings/edit-profile"
+          />
 
           <SidebarItem icon={IoChevronDown} label="See more" muted />
         </nav>

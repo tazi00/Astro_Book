@@ -41,94 +41,93 @@ export default function LoginPage() {
 
       {/* RIGHT SIDE */}
       <div className="flex items-center justify-center  bg-[url('/themebg.png')] bg-cover bg-center bg-no-repeat h-screen flex-col relative">
-        <div className="w-138.25 max-w-138.25 h-[648px] bg-white rounded-2xl shadow-2xl px-[70px] pt-[100px]">
+        <div className=" w-full max-w-[400px] pb-[50px]  bg-white rounded-lg shadow-2xl px-[40px] pt-[50px]">
           {/* Logo */}
           <div className="flex justify-center">
-            <img src="/logo.svg" alt="" className="w-full mb-3" />
+            <img src="/logo.svg" alt="" className="w-[280px] mb-3 " />
           </div>
 
           {/* Input */}
           <input
             type="text"
-            placeholder="+91 90000 80000"
-            className="w-full border border-[#9D0399] rounded-md px-[26px] py-[17px]  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black mb-[12px]"
+            placeholder="Phone number, username, or email"
+            className="w-full border border-primary rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-gray-400 mb-2 "
           />
 
           <div className="grid grid-cols-6 gap-[12px]">
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center  text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center  text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center  text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center  text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
             <input
               type="text"
               placeholder="0"
-              className="w-full border border-[#9D0399] rounded-md px-[10px] py-[10px] text-center  text-[22px] focus:outline-none focus:ring-2 focus:ring-[#9D0399] text-[#000] placeholder:text-black h-[56px]"
+              className="w-full border border-primary rounded-md px-[10px] py-[2px] text-center  text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-black h-[40px]"
             />
           </div>
 
-          {/* Button */}
           <Link
             href={"/about"}
-            className="w-full mt-[16px] mb-[32px] py-3 rounded-md bg-[#9D0399] text-white font-semibold hover:bg-[#9D0399] transition cursor-pointer block flex items-center justify-center"
+            className="w-full mt-[16px] mb-[32px] py-2 rounded-sm bg-primary text-white font-semibold hover:bg-primary transition block flex justify-center items-center"
           >
             Submit
           </Link>
 
           {/* Remember */}
-          <div className="flex items-center mb-[22px] text-[22px] text-gray-600 max-w-max mx-auto">
-            <input type="checkbox" className="mr-2 accent-[#9D0399]" />
+          <div className="flex items-center mb-[12px] text-[16px] text-gray-600 max-w-max mx-auto">
+            <input type="checkbox" className="mr-2 mt-[-3px] accent-primary" />
             Remember Me
           </div>
 
           {/* Google */}
-          <button className="w-full flex justify-center cursor-pointer ">
-            <img src="/g_login.svg" className="w-unset" />
+          <button className="w-full flex justify-center ">
+            <img src="/g_login.svg" className="w-[200px]" />
           </button>
 
           {/* Footer links */}
         </div>
 
-        <div className="text-center text-[22px] text-white mt-6  absolute bottom-10 ">
-          <a href="#" className="mx-2">
+        <div className="text-center text-[16px] text-white  absolute bottom-10 ">
+          <Link href="/about" className="mx-5 inline-block">
             About Us
-          </a>{" "}
+          </Link>
           |
-          <a href="#" className="mx-2">
+          <Link href="#" className="mx-5 inline-block">
             Contact Us
-          </a>{" "}
+          </Link>
           |
-          <a href="#" className="mx-2">
+          <Link href="#" className="mx-5 inline-block">
             Policy
-          </a>{" "}
+          </Link>
           |
-          <a href="#" className="mx-2">
+          <Link href="#" className="mx-5 inline-block">
             Blog
-          </a>
+          </Link>
           |
-          <a href="#" className="mx-2">
+          <Link href="#" className="mx-5 inline-block">
             Help
-          </a>
+          </Link>
         </div>
       </div>
     </div>

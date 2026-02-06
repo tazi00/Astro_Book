@@ -1,3 +1,5 @@
+import Footer from "@/components/footer";
+
 function Navbar() {
   return (
     <div className="w-full bg-[#fff1ff] shadow-sm">
@@ -17,7 +19,7 @@ export default function BlogDetailPage() {
     <div className="bg-white min-h-screen">
       <Navbar />
 
-      <section className="max-w-[1000px] mx-auto py-20 px-6 text-center">
+      <section className="max-w-[800px] mx-auto pt-20 px-6 text-center">
         <h1 className="text-[#9D0399] text-[48px] font-bold leading-tight mb-8">
           Which zodiac signs are most likely to thrive in 2026
         </h1>
@@ -29,81 +31,77 @@ export default function BlogDetailPage() {
             alt=""
           />
         </div>
-
-        <div className="text-[#9D0399] font-normal mb-6 text-start text-[22px]">
-          Admin &nbsp;|&nbsp; 24 Nov, 2025
-        </div>
-
-        <div className="text-[18px] text-gray-700 leading-relaxed text-left space-y-6">
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
-            velit esse molestie consequat, vel illum dolore eu feugiat nulla
-            facilisis at vero eros et accumsan et iusto odio dignissim qui
-            blandit praesent luptatum zzril delenit augue duis dolore te feugait
-            nulla facilisi.
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-            aliquam erat volutpat. consequat. Lorem ipsum dolor sit amet,
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-            aliquam erat volutpat. consequat.Lorem ipsum dolor sit amet,
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-            consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-            aliquam erat volutpat. consequat
-          </p>
-
-          <p>
-            consectetuer adipiscing elit, sed diam nonummy nibh euismod
-            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
-            enim ad minim veniam, quis nostrud exerci tation ullamcorper
-            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
-            autem vel eum iriure dolor in hendrerit in vulputate velit esse
-            molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-            vero eros et accumsan et iusto odio dignissim qui blandit praesent
-            luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          </p>
-          <p>
-            consectetuer adipiscing elit, sed diam nonummy nibh euismod
-            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
-            enim ad minim veniam, quis nostrud exerci tation ullamcorper
-            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
-            autem vel eum iriure dolor in hendrerit in vulputate velit esse
-            molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-            vero eros et accumsan et iusto odio dignissim qui blandit praesent
-            luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          </p>
-        </div>
       </section>
 
+      <div className="text-[14px] text-black leading-relaxed text-left space-y-6 max-w-[900px] mx-auto pb-8">
+        <div className="text-[#9D0399] font-normal mb-2 text-start text-[22px]">
+          Admin &nbsp;|&nbsp; 24 Nov, 2025
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+          vero eros et accumsan et iusto odio dignissim qui blandit praesent
+          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. consequat. Lorem ipsum dolor sit amet,
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. consequat.Lorem ipsum dolor sit amet,
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat. consequat
+        </p>
+
+        <p>
+          consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+          ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+          veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+          ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+          hendrerit in vulputate velit esse molestie consequat, vel illum dolore
+          eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+          dignissim qui blandit praesent luptatum zzril delenit augue duis
+          dolore te feugait nulla facilisi.
+        </p>
+        <p>
+          consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+          ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+          veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+          ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+          hendrerit in vulputate velit esse molestie consequat, vel illum dolore
+          eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+          dignissim qui blandit praesent luptatum zzril delenit augue duis
+          dolore te feugait nulla facilisi.
+        </p>
+      </div>
+
       {/* FOOTER */}
-      <footer className="bg-[#0B1D5B] py-10 text-center text-sm text-gray-300">
-        About Us | Contact Us | Policy | Blog | Help
-      </footer>
+     <Footer/>
     </div>
   );
 }

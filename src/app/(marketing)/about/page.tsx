@@ -7,7 +7,7 @@ export default function AboutPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative h-[370px] bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 overflow-hidden">
+      <section className="relative h-[370px] bg-gradient-to-r from-primary via-primary to-secondary overflow-hidden">
         <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover opacity-40" />
         <div className="relative z-10 flex items-center justify-center h-full">
           <h1 className=" text-[76px] font-bold tracking-wide">About Us</h1>
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <section className="bg-white text-gray-800 py-5 ">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center">
-            <h3 className="text-[#9D0399] font-bold text-[32px] mb-3">
+            <h3 className="text-primary font-bold text-[32px] mb-3">
               WHO WE ARE
             </h3>
             <p className="text-[18px] ">
@@ -50,7 +50,7 @@ export default function AboutPage() {
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-12">
             <img src="/about_img1.jpg" alt="" className="rounded-[30px]" />
             <div>
-              <h2 className="text-[#9D0399] font-bold text-[32px] mb-3">
+              <h2 className="text-primary font-bold text-[32px] mb-3">
                 What We Do
               </h2>
               <p className="text-[16px] text-black ">
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto">
           <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-6 text-gray-800 text-center">
             <div>
-              <h3 className="text-[#9D0399] font-bold text-[32px] mb-3">
+              <h3 className="text-primary font-bold text-[32px] mb-3">
                 MISSION
               </h3>
               <p className="text-[18px] ">
@@ -93,7 +93,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-[#9D0399] font-bold text-[32px] mb-3">
+              <h3 className="text-primary font-bold text-[32px] mb-3">
                 VISION
               </h3>
               <p className="text-[18px] ">
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </section>
 
       {/* BANNER */}
-      <section className=" bg-[#9D0399] py-[40px] ">
+      <section className=" bg-primary py-[40px] ">
         <div className=" max-w-[1400px] mx-auto text-center">
           <h2 className="text-[50px] text-white font-bold flex gap-[50px] items-center justify-center ">
             <span>ASTROLOGY </span>

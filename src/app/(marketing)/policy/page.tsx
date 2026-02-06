@@ -7,7 +7,7 @@ function Navbar() {
       <div className="max-w-[1469px] mx-auto flex items-center justify-between px-6 py-2">
         <img src="/logo.svg" alt="" className="w-[240px] mt-6" />
 
-        <button className="bg-[#9D0399] text-white w-[150px] py-[12px] rounded-[5px] font-bold text-[22px]">
+        <button className="bg-primary text-white w-[150px] py-[12px] rounded-[5px] font-bold text-[22px]">
           Login
         </button>
       </div>
@@ -33,12 +33,10 @@ export default function PolicyPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative h-[420px] bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 overflow-hidden">
+      <section className="relative h-[370px] bg-gradient-to-r from-primary via-primary to-secondary overflow-hidden">
         <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover opacity-40" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-[80px] text-white font-bold">
-            Policy & Guidelines
-          </h1>
+          <h1 className="text-white text-[76px] font-bold tracking-wide">Policy Guideline</h1>
         </div>
       </section>
 

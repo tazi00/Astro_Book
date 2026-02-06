@@ -1,3 +1,6 @@
+import Footer from "@/components/footer";
+import Link from "next/link";
+
 function Navbar() {
   return (
     <div className="w-full bg-[#fff1ff] shadow-sm">
@@ -26,10 +29,12 @@ export default function BlogPage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative h-[420px] bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 overflow-hidden">
+      <section className="relative h-[370px] bg-gradient-to-r from-primary via-primary to-secondary overflow-hidden">
         <div className="absolute inset-0 bg-[url('/about-bg.png')] bg-cover opacity-40" />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h1 className="text-[100px] text-white font-bold">Blog</h1>
+          <h1 className="text-white text-[76px] font-bold tracking-wide">
+            Blog
+          </h1>
         </div>
       </section>
 
@@ -43,22 +48,25 @@ export default function BlogPage() {
               <img src={blog.image} className="w-full h-[200px] object-cover" />
 
               <div className=" relative">
-                <h3 className="text-[20px] font-bold text-[#0B1D5B] leading-tight absolute left-0 top-[-65px] bg-white w-[80%] text-balace py-2 ">
+                <h3 className="text-[20px] font-bold text-[#0B1D5B] leading-tight absolute left-0 top-[-90px] bg-white w-[72%] text-balace py-2  text-pretty px-[15px] ">
                   {blog.title}
                 </h3>
 
-                <div className="flex justify-between text-[14px] mt-2 text-[#9D0399] font-semibold mt-5">
+                <div className="flex justify-between text-[14px]  text-[#9D0399] font-normal mt-16 px-[15px]">
                   <span>Admin</span>
                   <span>{blog.date}</span>
                 </div>
 
-                <p className="text-[15px] text-gray-600 mt-3 leading-relaxed">
+                <p className="text-[15px] text-gray-600 mt-3 leading-relaxed text-justify">
                   {blog.excerpt}
                 </p>
 
-                <button className="mt-5 bg-[#9D0399] text-white px-6 py-2 text-[14px] ">
+                <Link
+                  href="/blog/zodiac"
+                  className="mt-5 bg-[#9D0399] text-white px-6 py-2 text-[14px] inline-block "
+                >
                   Read More
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -66,9 +74,7 @@ export default function BlogPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#0B1D5B] py-10 text-center text-sm text-gray-300">
-        About Us | Contact Us | Policy | Blog | Help
-      </footer>
+      <Footer />
     </div>
   );
 }

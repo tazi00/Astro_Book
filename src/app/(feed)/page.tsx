@@ -4,6 +4,10 @@ import StorySlider from "@/components/story-slider";
 function HomePage() {
   return (
     <div className="lg:overflow-y-scroll">
+      <div
+        className="top-0 left-0 w-full h-[2px] 
+bg-[linear-gradient(to_right,white_0%,white_20%,gray_50%,white_80%,white_100%)]"
+      ></div>
       <StorySlider />
       <div className="space-y-4 md:overflow-y-scroll h-screen">
         <PostFeed />
@@ -16,9 +20,14 @@ export default HomePage;
 
 export function AstroPostCard({ post }: { post: any }) {
   return (
-    <div className="w-full mx-auto bg-white overflow-hidden">
+    <div className="w-full mx-auto bg-white overflow-hidden ">
+      <div
+        className="top-0 left-0 w-full h-[2px] 
+bg-[linear-gradient(to_right,white_0%,white_20%,gray_50%,white_80%,white_100%)]"
+      ></div>
+
       {/* Header */}
-      <div className="flex items-center justify-between p-1">
+      <div className="flex items-center justify-between p-1 py-3">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-full bg-purple-300 flex items-center justify-center text-white font-semibold">
             S
@@ -212,7 +221,7 @@ export function PostFeed() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="">
       {posts.map((post) => (
         <AstroPostCard key={post.id} post={post} />
       ))}
