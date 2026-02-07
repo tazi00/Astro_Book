@@ -3,8 +3,8 @@ import React from "react";
 function BlogsIcon({ className }: { className: string }) {
   return (
     <svg
-      width="25"
-      height="25"
+      width="22"
+      height="22"
       viewBox="0 0 31 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

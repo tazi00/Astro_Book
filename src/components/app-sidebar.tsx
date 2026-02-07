@@ -114,7 +114,15 @@ function AppSidebar() {
             link="/settings/edit-profile"
           />
 
-          <SidebarItem icon={IoChevronDown} label="See more" muted />
+          <div className="md:flex hidden items-center gap-3 px-3 py-2 rounded-lg text-primary font-medium text-lg">
+            <Image
+              src="/sidebar-icons/seemore.png"
+              width={25}
+              height={25}
+              alt=""
+            />
+            <span>See more</span>
+          </div>
         </nav>
       </aside>
     </>

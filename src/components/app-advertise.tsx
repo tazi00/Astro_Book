@@ -1,6 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
+import Image from "next/image";
 import { BsThreeDots } from "react-icons/bs";
 
 const AppAdvertise = () => {
@@ -9,7 +10,7 @@ const AppAdvertise = () => {
       <TopAstrologersSidebar />
       <div className="lg:w-[310px] p-4 mb-30">
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="text-base font-medium text-gray-900">
+          <h3 className="text-base font-medium text-gray-400">
             Recommended for you
           </h3>
 
@@ -53,8 +54,8 @@ function TopAstrologersSidebar() {
   return (
     <div className="lg:w-[310px]  rounded-xl p-4">
       {/* Header */}
-      <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-base font-medium text-gray-900">
+      <div className="mb-0 flex items-center justify-between">
+        <h3 className="text-base font-medium text-gray-400">
           Top Astrologers for you
         </h3>
 
@@ -77,34 +78,45 @@ function TopAstrologersSidebar() {
       {/* List */}
       <div className="">
         <div className="flex items-center justify-end">
-          <button className="text-secondary text-sm font-light">See All</button>
+          <button className="text-secondary text-xs font-light">See All</button>
         </div>
 
         {astrologers.map((_, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-gray-50"
-          >
-            {/* Left */}
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 overflow-hidden rounded-full bg-gray-200" />
+          <>
+            <div
+              key={i}
+              className="flex items-center justify-between gap-3 rounded-lg py-2 hover:bg-gray-50"
+            >
+              {/* Left */}
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/sidebar-icons/profile-icon.png"
+                  width={40}
+                  height={40}
+                  alt="profile-icon"
+                />
 
-              <div className="leading-tight">
-                <p className="text-sm font-medium text-gray-900">
-                  Suprio Karmakar
-                </p>
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-xs text-gray-500">Vedic</p>
-                  <p className="text-xs text-primary">3 Following</p>
+                <div className="leading-tight">
+                  <p className="text-sm font-medium text-tertiary">
+                    Suprio Karmakar
+                  </p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-xs text-gray-500">Vedic</p>
+                    <p className="text-[10px] text-primary">Following</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Action */}
-            <button className="rounded bg-primary flex items-center justify-center h-[25px] w-[80px] text-[10px] font-medium text-white hover:bg-primary/80">
-              Book Now
-            </button>
-          </div>
+              {/* Action */}
+              <button className="rounded bg-primary flex items-center justify-center h-[25px] w-[80px] text-[10px] font-medium text-white hover:bg-primary/80">
+                Book Now
+              </button>
+            </div>
+            <div
+              className="top-0 left-0 w-full h-[2px] 
+bg-[linear-gradient(to_right,white_0%,white_20%,gray_50%,white_80%,white_100%)]"
+            ></div>
+          </>
         ))}
       </div>
     </div>

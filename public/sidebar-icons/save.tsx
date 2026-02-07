@@ -3,12 +3,12 @@ import React from "react";
 function SaveIcon({ className }: { className: string }) {
   return (
     <svg
-      width="25"
-      height="25"
+      width="20"
+      height="20"
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`-ms-0.5 ${className}`}
     >
       <g filter="url(#filter0_d_328_37)">
         <path
