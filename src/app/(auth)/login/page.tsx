@@ -1,4 +1,9 @@
+"use client";
+
+import { auth } from "@/lib/firebase";
+import { RecaptchaVerifier } from "firebase/auth";
 import Link from "next/link";
+import { useState } from "react";
 
 function LoginSlider() {
   return (
@@ -32,6 +37,41 @@ function LoginSlider() {
 }
 
 export default function LoginPage() {
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const setupRecaptcha = () => {
+    if (!(window as any).recaptchaVerifier) {
+      (window as any).recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        { size: "invisible" },
+      );
+    }
+  };
+
+  const handleSendOTP = async () => {
+    try {
+      setLoading(true);
+      setupRecaptcha();
+
+      const confirmation = await signInWithPhoneNumber(
+        auth,
+        phone,
+        (window as any).recaptchaVerifier,
+      );
+
+      (window as any).confirmationResult = confirmation;
+
+      // Redirect to verification page
+      router.push("/verification");
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2">
       {/* LEFT SIDE */}
@@ -50,17 +90,19 @@ export default function LoginPage() {
           {/* Input */}
           <input
             type="text"
-            placeholder="Phone number, username, or email"
-            className="w-full border border-primary rounded-md px-[16px] py-[12px] text-[16px] focus:outline-none focus:ring-2 focus:ring-primary text-[#000] placeholder:text-gray-400 "
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Phone number"
           />
 
           {/* Button */}
-          <Link
-            href="/verification"
-            className="w-full mt-[16px] mb-[32px] py-2 rounded-sm bg-primary text-white font-semibold hover:bg-primary transition block flex justify-center items-center"
+          <button
+            type="submit"
+            onClick={handleSendOTP}
+            className="w-full mt-[16px] mb-[32px] py-2 rounded-sm bg-primary text-white font-semibold hover:bg-primary transition flex justify-center items-center"
           >
-            Send OTP
-          </Link>
+            {loading ? "Sending..." : "Send OTP"}
+          </button>
 
           {/* Remember */}
           <div className="flex items-center mb-[12px] text-[16px] text-gray-600 max-w-max mx-auto">
@@ -69,8 +111,8 @@ export default function LoginPage() {
           </div>
 
           {/* Google */}
-          <button className="w-full flex justify-center ">
-            <img src="/g_login.svg" className="w-[200px]" />
+          <button type="button" className="w-full flex justify-center ">
+            <img src="/g_login.svg" alt="" className="w-[200px]" />
           </button>
         </div>
         {/* Footer links */}
