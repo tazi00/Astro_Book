@@ -41,7 +41,7 @@ export default function OnboardingPage() {
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await fetch(
-        "http://localhost:3000/api/v1/users/onboarding",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/users/onboarding`,
         {
           method: "POST",
           headers: {

@@ -13,7 +13,7 @@ export default function UpgradeToAstrologer() {
       const accessToken = localStorage.getItem("accessToken");
 
       const response = await fetch(
-        "http://localhost:3000/api/v1/users/upgrade-to-astrologer",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/users/upgrade-to-astrologer`,
         {
           method: "POST",
           headers: {

@@ -20,7 +20,7 @@ export function useAuth() {
       setLoading(true);
       setError(null);
 
-      // 🔐 DEV MODE ONLY — disable app verification
+      // 🔐 DEV MODE ONLY — disable app verification (use test numbers in Firebase Console)
       if (process.env.NODE_ENV === "development") {
         auth.settings.appVerificationDisabledForTesting = true;
       }
