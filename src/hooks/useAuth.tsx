@@ -15,61 +15,49 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null);
 
   // 1️⃣ PHONE LOGIN (OTP)
-  const loginWithPhone = async (phoneNumber: string) => {
-    try {
-      setLoading(true);
-      setError(null);
+ const loginWithPhone = async (phoneNumber: string) => {
+   try {
+     setLoading(true);
+     setError(null);
+     if ((window as any).recaptchaVerifier) {
+       (window as any).recaptchaVerifier.clear();
+       (window as any).recaptchaVerifier = null;
+     }
 
-      // 🔐 DEV MODE ONLY — disable app verification (use test numbers in Firebase Console)
-      if (process.env.NODE_ENV === "development") {
-        auth.settings.appVerificationDisabledForTesting = true;
-      }
+     auth.settings.appVerificationDisabledForTesting =
+       process.env.NODE_ENV === "development";
 
-      // ✅ Create reCAPTCHA only once
-      if (!(window as any).recaptchaVerifier) {
-        (window as any).recaptchaVerifier = new RecaptchaVerifier(
-          auth,
-          "recaptcha-container",
-          {
-            size: "invisible",
-          },
-        );
+     (window as any).recaptchaVerifier = new RecaptchaVerifier(
+       auth,
+       "recaptcha-container",
+       {
+         size: "invisible",
+         ...(process.env.NEXT_PUBLIC_FIREBASE_RECAPTCHA_SITE && {
+           siteKey: process.env.NEXT_PUBLIC_FIREBASE_RECAPTCHA_SITE,
+         }),
+       },
+     );
 
-        // Optional: pre-render (avoids some race conditions)
-        await (window as any).recaptchaVerifier.render();
-      }
+     await (window as any).recaptchaVerifier.render();
 
-      const appVerifier = (window as any).recaptchaVerifier;
+     const confirmationResult = await signInWithPhoneNumber(
+       auth,
+       phoneNumber,
+       (window as any).recaptchaVerifier,
+     );
 
-      // 📩 Send OTP
-      const confirmationResult = await signInWithPhoneNumber(
-        auth,
-        phoneNumber,
-        appVerifier,
-      );
-
-      return confirmationResult;
-    } catch (err: any) {
-      setError(err.message);
-
-      // 🔁 Reset reCAPTCHA on failure
-      if ((window as any).recaptchaVerifier) {
-        try {
-          await (window as any).recaptchaVerifier
-            .render()
-            .then((widgetId: number) => {
-              if (window.grecaptcha) {
-                window.grecaptcha.reset(widgetId);
-              }
-            });
-        } catch {}
-      }
-
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  };
+     return confirmationResult;
+   } catch (err: any) {
+     setError(err.message);
+     if ((window as any).recaptchaVerifier) {
+       (window as any).recaptchaVerifier.clear();
+       (window as any).recaptchaVerifier = null;
+     }
+     throw err;
+   } finally {
+     setLoading(false);
+   }
+ };
 
   // Verify OTP and login to backend
   const verifyOTP = async (
